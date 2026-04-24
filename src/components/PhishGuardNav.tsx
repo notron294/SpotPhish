@@ -8,13 +8,13 @@ export function PhishGuardNav() {
           <span className="relative flex h-7 w-7 items-center justify-center rounded-lg bg-primary/15 text-primary">
             <ShieldCheck className="h-4 w-4" />
           </span>
-          PhishGuard
+          Detect-Stats-Learn-Api
         </a>
         <ul className="hidden items-center gap-8 text-xs text-muted-foreground md:flex">
-          <li><a className="transition hover:text-foreground" href="#scan">Scanner</a></li>
-          <li><a className="transition hover:text-foreground" href="#dashboard">Dashboard</a></li>
-          <li><a className="transition hover:text-foreground" href="#insight">Insights</a></li>
+          <li><a className="transition hover:text-foreground" href="#scan">Detect</a></li>
+          <li><a className="transition hover:text-foreground" href="#stats">Stats</a></li>
           <li><a className="transition hover:text-foreground" href="#learn">Learn</a></li>
+          <li><a className="transition hover:text-foreground" href="#api">API</a></li>
         </ul>
         <div className="flex items-center gap-2">
           <span className="hidden items-center gap-1.5 rounded-full border border-border bg-surface px-2.5 py-1 text-[10px] font-medium text-muted-foreground sm:flex">
