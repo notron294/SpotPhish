@@ -9,21 +9,24 @@ import { RedFlagsTable } from "@/components/RedFlagsTable";
 import { SafePreview } from "@/components/SafePreview";
 import { LogicBreakdown } from "@/components/LogicBreakdown";
 import { EmptyDashboard } from "@/components/EmptyDashboard";
+import { ThreatMarket } from "@/components/ThreatMarket";
+import { LearnGrid } from "@/components/LearnGrid";
+import { ApiSection } from "@/components/ApiSection";
 import { analyzeEmail, type ScanResult } from "@/lib/phishing";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "PhishGuard — Real-time phishing email detection" },
+      { title: "Detect-Stats-Learn-Api — Phishing intelligence platform" },
       {
         name: "description",
         content:
-          "Drop an .eml file or paste raw headers and get a forensic risk report in under a second. Sender reputation, link safety, syntax analysis, urgency metrics.",
+          "Scan emails, URLs and sender addresses. Track trending phishing campaigns, learn the tactics, and integrate detection via API.",
       },
-      { property: "og:title", content: "PhishGuard — Phishing email detector" },
+      { property: "og:title", content: "Detect-Stats-Learn-Api — Phishing intelligence" },
       {
         property: "og:description",
-        content: "Apple-clean, CoinMarketCap-dense. Catch phishing before it catches you.",
+        content: "Apple-clean, CoinMarketCap-dense. Detect, rank, learn and integrate.",
       },
     ],
   }),
@@ -36,7 +39,6 @@ function Index() {
 
   const handleScan = (raw: string) => {
     setScanning(true);
-    // Simulate analysis delay for the "scan" effect
     setTimeout(() => {
       setResult(analyzeEmail(raw));
       setScanning(false);
@@ -47,7 +49,7 @@ function Index() {
   };
 
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen scroll-smooth">
       <PhishGuardNav />
       <main className="relative z-10">
         <Hero />
@@ -91,13 +93,18 @@ function Index() {
           </div>
         </section>
 
+        <ThreatMarket />
+        <LearnGrid />
+        <ApiSection />
+
         <footer className="border-t border-border px-6 py-10">
           <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 text-xs text-muted-foreground sm:flex-row">
-            <p>© {new Date().getFullYear()} PhishGuard. Built for security teams.</p>
+            <p>© {new Date().getFullYear()} Detect-Stats-Learn-Api. Built for security teams.</p>
             <div className="flex items-center gap-5">
-              <a className="transition hover:text-foreground" href="#">Privacy</a>
-              <a className="transition hover:text-foreground" href="#">Security</a>
-              <a className="transition hover:text-foreground" href="#">API</a>
+              <a className="transition hover:text-foreground" href="#scan">Detect</a>
+              <a className="transition hover:text-foreground" href="#stats">Stats</a>
+              <a className="transition hover:text-foreground" href="#learn">Learn</a>
+              <a className="transition hover:text-foreground" href="#api">API</a>
             </div>
           </div>
         </footer>
