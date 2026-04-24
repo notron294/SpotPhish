@@ -1,4 +1,5 @@
 import { TrendingUp, TrendingDown, Flame } from "lucide-react";
+import { ThreatMap } from "./ThreatMap";
 
 interface Threat {
   rank: number;
@@ -53,6 +54,8 @@ export function ThreatMarket() {
             <span className="rounded-full border border-border bg-surface px-2.5 py-1">30d</span>
           </div>
         </div>
+
+        <ThreatMap />
 
         <div className="overflow-hidden rounded-2xl border border-border bg-surface/40 backdrop-blur">
           <div className="overflow-x-auto">
